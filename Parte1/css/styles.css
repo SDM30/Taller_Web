@@ -5,21 +5,19 @@
 
 /* Fuentes */
 @font-face {
-  font-family: 'Intel One Mono Italic';
+  font-family: "Intel One Mono Italic";
   src: url(../fonts/IntelOneMono-Italic-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: 'Intel One Mono';
+  font-family: "Intel One Mono";
   src: url(../fonts/IntelOneMono-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: 'Winky Rough';
+  font-family: "Winky Rough";
   src: url(../fonts/WinkyRough-VariableFont_wght.ttf);
 }
-
-
 
 /*Posicion fija del menú y color de fondo*/
 
@@ -29,7 +27,8 @@ header {
   width: 100%;
 }
 
-header, footer {
+header,
+footer {
   background-color: #000000;
 }
 
@@ -42,7 +41,8 @@ header ul {
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -57,13 +57,17 @@ header ul li {
   list-style-type: none;
 }
 
-#bienvenida a, header a, footer p, #social a{
+#bienvenida a,
+header a,
+footer p,
+#social a {
   color: orangered;
   text-decoration: none;
 }
 
 /*hover de los enlaces de la barra de menú*/
-#bienvenida a:hover ,header li:hover a{
+#bienvenida a:hover,
+header li:hover a {
   font-size: 17px;
   color: orange;
   text-decoration: underline;
@@ -72,7 +76,6 @@ header ul li {
 main {
   flex: 1;
 }
-
 
 #presentacion {
   height: 200px;
@@ -84,12 +87,11 @@ main {
   align-items: center;
 }
 
-
 #titulo-bloque {
   width: 50%;
   text-align: center;
-  font-family: 'Intel One Mono Italic', Arial, sans-serif;
-  color:rgb(38, 91, 141);
+  font-family: "Intel One Mono Italic", Arial, sans-serif;
+  color: rgb(38, 91, 141);
   text-decoration: underline;
   background: radial-gradient(
     circle,
@@ -99,8 +101,8 @@ main {
 }
 
 h2 {
-  font-family: 'Intel One Mono', Arial, sans-serif;
-  color:rgb(38, 91, 141);
+  font-family: "Intel One Mono", Arial, sans-serif;
+  color: rgb(38, 91, 141);
   text-decoration: underline;
 }
 
@@ -172,12 +174,12 @@ footer {
 /*Encabezado: azul oscuro, texto blanco y en negrita*/
 #tabla-biografia th {
   background-color: rgb(21, 21, 97);
-  font-family: 'Intel One Mono', monospace;
+  font-family: "Intel One Mono", monospace;
   color: white;
 }
 
 #tabla-biografia td {
-  font-family: 'Winky Rough', cursive;
+  font-family: "Winky Rough", cursive;
 }
 
 /*Filas impares: verde claro, texto negro*/
@@ -186,28 +188,38 @@ tr:nth-child(even) {
 }
 
 #hoja-vida {
-  margin: 30px;
+  margin: 10px;
 }
 
-#hoja-vida section {
+#indice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Cada subsección debe tener un borde continuo y un color de fondo en
+gradiente.*/
+.subseccion-lista {
   border: 1px solid black;
+  background-image: linear-gradient(rgba(107, 109, 80, 0), rgb(243, 143, 86));
   padding: 10px;
   margin: 16px 0;
 }
 
 /*Los números deben ser de un color distinto al texto de cada ítem*/
 #hoja-vida ol {
-    list-style: none;
-    counter-reset: num;
+  list-style: none;
+  counter-reset: num;
 }
 
 #hoja-vida ol li {
-    counter-increment: num;
+  counter-increment: num;
 }
 
 #hoja-vida ol li::before {
-    content: counter(num) ". ";
-    color: rgb(175, 71, 80);
+  content: counter(num) ". ";
+  color: rgb(175, 71, 80);
 }
 
 /*Las viñetas deben ser de un color distinto al texto de cada ítem*/
@@ -220,7 +232,7 @@ ul li::marker {
 }
 
 #hoja-vida a {
-  color:rgb(38, 91, 141);
+  color: rgb(38, 91, 141);
 }
 
 #hoja-vida a:visited {
@@ -232,8 +244,3 @@ ul li::marker {
   font-weight: bold;
   text-decoration: underline;
 }
-
-
-
-
-
