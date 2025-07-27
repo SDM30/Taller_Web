@@ -1,0 +1,183 @@
+/* Revisar bordes de los elementos */
+/* *{
+    border: 1px solid red;
+} */
+
+/* Fuentes */
+@font-face {
+  font-family: 'Intel One Mono Italic';
+  src: url(../fonts/IntelOneMono-Italic-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'Intel One Mono';
+  src: url(../fonts/IntelOneMono-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: 'Winky Rough';
+  src: url(../fonts/WinkyRough-VariableFont_wght.ttf);
+}
+
+
+
+/* Posicion fija del menú y color de fondo */
+
+/* INICIO BIENVENIDA */
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+header, footer {
+  background-color: #000000;
+}
+
+header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60px;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header ul li {
+  list-style-type: none;
+}
+
+#bienvenida a, header a, footer p, #social a{
+  color: orangered;
+  text-decoration: none;
+}
+
+#bienvenida a:hover ,header li:hover a{
+  font-size: 17px;
+  color: orange;
+  text-decoration: underline;
+}
+
+main {
+  flex: 1;
+}
+
+
+#presentacion {
+  height: 200px;
+  background-image: url("../images/placeholder.png");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#titulo-bloque {
+  width: 50%;
+  text-align: center;
+  font-family: 'Intel One Mono Italic', Arial, sans-serif;
+  color:rgb(38, 91, 141);
+  text-decoration: underline;
+  background: radial-gradient(
+    circle,
+    rgba(251, 176, 63, 1) 0%,
+    rgba(252, 91, 70, 1) 100%
+  );
+}
+
+#bienvenida {
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+#retrato {
+  border: 1px solid black;
+  float: left;
+  margin-right: 20px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+#social {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+#social a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 10px;
+}
+
+#social a:hover {
+  transform: scale(1.1);
+}
+
+#social p:hover {
+  color: orange;
+  text-decoration: underline;
+}
+
+#copyleft {
+  display: flex;
+  align-items: center;
+}
+
+#copyleft img {
+  margin-left: 5px;
+}
+
+#contenedor-biografia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+#tabla-biografia {
+  width: 80%;
+  border-collapse: collapse;
+  font-size: larger;
+}
+
+#tabla-biografia th {
+  background-color: rgb(21, 21, 97);
+  font-family: 'Intel One Mono', monospace;
+  color: white;
+}
+
+#tabla-biografia td {
+  font-family: 'Winky Rough', cursive;
+}
+
+tr:nth-child(even) {
+  background-color: greenyellow;
+}
+
+
+
+
