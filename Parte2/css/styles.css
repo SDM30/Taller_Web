@@ -1,0 +1,23 @@
+* {
+  border: 1px solid red;
+}
+
+/*Header horizontal, logo al lado izquierdo del nombre, carrito al lado derecho*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Seccion de bienvenida debajo del header con la informacion del negocio al lado derecho y la imagen a la izquierda*/
+#bienvenida {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
+
+/*Titulos centrados*/
+.seccion-titulo {
+  text-align: center;
+}
