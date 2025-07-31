@@ -21,3 +21,37 @@ header {
 .seccion-titulo {
   text-align: center;
 }
+
+/*Cuadrilla de productos dinamica/flexible*/
+#productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/*Formulario de agregar productos: columna de inputs, el boton de enviar en el costado inferior derecho alineado con el precio*/
+.formulario-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  border: none;
+  padding: 0;
+}
+
+.formulario-container > * {
+  flex: 1;
+}
+
+#enviar-formulario {
+  align-self: flex-end;
+  max-width: 200px;
+}
+
+/* Estilo para agrupar los inputs */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

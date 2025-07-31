@@ -23,35 +23,115 @@
       </section>
 
       <!-- Sección de productos -->
-      <section id="productos">
+      <section id="tienda">
         <h2 class="seccion-titulo">Tienda</h2>
-        <div class="producto">
-          <img src="" alt="Imagen del producto" />
-          <h3>Nombre del producto</h3>
-          <ul>
-            <li>Caracteristica 1</li>
-            <li>Caracteristica 2</li>
-            <li>Caracteristica 3</li>
-          </ul>
-          <p>Precio</p>
-          <button>Agregar al carrito</button>
+        <div id="productos">
+          <article class="producto">
+            <img src="" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <ul>
+              <li>Atributo 1</li>
+              <li>Atributo 2</li>
+              <li>Atributo 3</li>
+            </ul>
+            <p>Precio</p>
+            <button>Agregar al carrito</button>
+          </article>
+
+          <article class="producto">
+            <img src="" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <ul>
+              <li>Atributo 1</li>
+              <li>Atributo 2</li>
+              <li>Atributo 3</li>
+            </ul>
+            <p>Precio</p>
+            <button>Agregar al carrito</button>
+          </article>
+
+          <article class="producto">
+            <img src="" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <ul>
+              <li>Atributo 1</li>
+              <li>Atributo 2</li>
+              <li>Atributo 3</li>
+            </ul>
+            <p>Precio</p>
+            <button>Agregar al carrito</button>
+          </article>
+
+          <article class="producto">
+            <img src="" alt="Imagen del producto" />
+            <h3>Nombre del producto</h3>
+            <ul>
+              <li>Atributo 1</li>
+              <li>Atributo 2</li>
+              <li>Atributo 3</li>
+            </ul>
+            <p>Precio</p>
+            <button>Agregar al carrito</button>
+          </article>
         </div>
       </section>
 
       <!-- Sección de agregar productos -->
       <section id="agregar-articulo">
         <h2 class="seccion-titulo">Agregar productos</h2>
-        <form>
-          <input type="text" placeholder="Nombre del producto" />
-          <input type="text" placeholder="Caracteristica 1" />
-          <input type="text" placeholder="Caracteristica 2" />
-          <input type="text" placeholder="Caracteristica 3" />
-          <input type="number" placeholder="Precio" />
-          <button>Agregar producto</button>
+        <form id="formulario-articulo">
+          <fieldset class="formulario-container">
+            <p hidden id="alerta"></p>
+            <div class="input-group">
+              <label for="nombre">Nombre del producto</label>
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre del producto"
+                required
+              />
+              <label for="atributo1">Atributo 1</label>
+              <input
+                type="text"
+                name="atributo1"
+                placeholder="Atributo 1"
+                required
+              />
+              <label for="atributo2">Atributo 2</label>
+              <input
+                type="text"
+                name="atributo2"
+                placeholder="Atributo 2"
+                required
+              />
+              <label for="atributo3">Atributo 3</label>
+              <input
+                type="text"
+                name="atributo3"
+                placeholder="Atributo 3"
+                required
+              />
+              <label for="imagen">Imagen</label>
+              <input
+                type="url"
+                name="imagen"
+                placeholder="URL de la imagen"
+                required
+              />
+              <label for="precio">Precio</label>
+              <input
+                type="number"
+                name="precio"
+                placeholder="Precio"
+                required
+              />
+            </div>
+            <button id="enviar-formulario">Agregar producto</button>
+          </fieldset>
         </form>
       </section>
     </main>
 
-    <script src="../js/index.js"></script>
+    <script src="../js/script.js"></script>
   </body>
 </html>
