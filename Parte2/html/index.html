@@ -12,8 +12,22 @@
     <header>
       <img src="" alt="Logo de la tienda" />
       <h1>Nombre de la tienda</h1>
-      <img src="" alt="Carrito de compras" />
+      <img src="" id="carrito" alt="Carrito de compras" />
     </header>
+
+    <table id="tabla-articulos">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-body">
+        <!-- Filas de la tabla -->
+      </tbody>
+    </table>
 
     <main>
       <!-- Bienvenida al negocio -->
@@ -25,55 +39,7 @@
       <!-- Sección de productos -->
       <section id="tienda">
         <h2 class="seccion-titulo">Tienda</h2>
-        <div id="productos">
-          <article class="producto">
-            <img src="" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <ul>
-              <li>Atributo 1</li>
-              <li>Atributo 2</li>
-              <li>Atributo 3</li>
-            </ul>
-            <p>Precio</p>
-            <button>Agregar al carrito</button>
-          </article>
-
-          <article class="producto">
-            <img src="" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <ul>
-              <li>Atributo 1</li>
-              <li>Atributo 2</li>
-              <li>Atributo 3</li>
-            </ul>
-            <p>Precio</p>
-            <button>Agregar al carrito</button>
-          </article>
-
-          <article class="producto">
-            <img src="" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <ul>
-              <li>Atributo 1</li>
-              <li>Atributo 2</li>
-              <li>Atributo 3</li>
-            </ul>
-            <p>Precio</p>
-            <button>Agregar al carrito</button>
-          </article>
-
-          <article class="producto">
-            <img src="" alt="Imagen del producto" />
-            <h3>Nombre del producto</h3>
-            <ul>
-              <li>Atributo 1</li>
-              <li>Atributo 2</li>
-              <li>Atributo 3</li>
-            </ul>
-            <p>Precio</p>
-            <button>Agregar al carrito</button>
-          </article>
-        </div>
+        <div id="productos"></div>
       </section>
 
       <!-- Sección de agregar productos -->
@@ -132,6 +98,6 @@
       </section>
     </main>
 
-    <script src="../js/script.js"></script>
+    <script type="module" src="../js/script.js"></script>
   </body>
 </html>

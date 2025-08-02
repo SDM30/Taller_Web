@@ -2,11 +2,35 @@
   border: 1px solid red;
 }
 
-/*Header horizontal, logo al lado izquierdo del nombre, carrito al lado derecho*/
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative; /* Para posicionar el carrito relativo al header */
+}
+
+#tabla {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#tabla th,
+#tabla td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+  width: 300px;
+  height: 50px;
+}
+
+#tabla th {
+  background-color: #f0f0f0;
 }
 
 /*Seccion de bienvenida debajo del header con la informacion del negocio al lado derecho y la imagen a la izquierda*/
@@ -54,4 +78,18 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.producto {
+  border: 1px solid black;
+}
+
+.img-producto {
+  width: 200px;
+  height: 100px;
+}
+
+#tabla-articulos img {
+  width: 100px;
+  height: 100px;
 }
