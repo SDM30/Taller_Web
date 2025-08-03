@@ -10,24 +10,32 @@
   <body>
     <!-- Nombre, Logo y Carrito -->
     <header>
-      <img src="" alt="Logo de la tienda" />
+      <img src="logo.png" alt="Logo de la tienda" />
       <h1>Nombre de la tienda</h1>
-      <img src="" id="carrito" alt="Carrito de compras" />
+      <div id="carrito-container">
+        <img src="carrito.png" id="carrito" alt="Carrito de compras" />
+        <!-- La tabla dentro de un contenedor relativo al carrito -->
+        <div id="tabla-container">
+          <table id="tabla-articulos">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-body">
+              <!-- Filas de la tabla -->
+            </tbody>
+          </table>
+          <p id="alerta-carrito" class="alerta">
+            Todavia no hay articulos en el carrito
+          </p>
+          <button id="vaciar">Vaciar</button>
+        </div>
+      </div>
     </header>
-
-    <table id="tabla-articulos">
-      <thead>
-        <tr>
-          <th>Imagen</th>
-          <th>Nombre</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-        </tr>
-      </thead>
-      <tbody id="tabla-body">
-        <!-- Filas de la tabla -->
-      </tbody>
-    </table>
 
     <main>
       <!-- Bienvenida al negocio -->
@@ -47,12 +55,13 @@
         <h2 class="seccion-titulo">Agregar productos</h2>
         <form id="formulario-articulo">
           <fieldset class="formulario-container">
-            <p hidden id="alerta"></p>
+            <p hidden id="alerta-articulo"></p>
             <div class="input-group">
               <label for="nombre">Nombre del producto</label>
               <input
                 type="text"
                 name="nombre"
+                id="txtNombre"
                 placeholder="Nombre del producto"
                 required
               />
@@ -60,6 +69,7 @@
               <input
                 type="text"
                 name="atributo1"
+                id="txtAtributo1"
                 placeholder="Atributo 1"
                 required
               />
@@ -67,6 +77,7 @@
               <input
                 type="text"
                 name="atributo2"
+                id="txtAtributo2"
                 placeholder="Atributo 2"
                 required
               />
@@ -74,6 +85,7 @@
               <input
                 type="text"
                 name="atributo3"
+                id="txtAtributo3"
                 placeholder="Atributo 3"
                 required
               />
@@ -81,6 +93,7 @@
               <input
                 type="url"
                 name="imagen"
+                id="urlImagen"
                 placeholder="URL de la imagen"
                 required
               />
@@ -88,6 +101,7 @@
               <input
                 type="number"
                 name="precio"
+                id="txtPrecio"
                 placeholder="Precio"
                 required
               />

@@ -2,35 +2,57 @@
   border: 1px solid red;
 }
 
+/* Contenedor principal del header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative; /* Para posicionar el carrito relativo al header */
+  position: relative;
+  z-index: 100; /* Header esté sobre el contenido */
 }
 
-#tabla {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
-  float: right;
+/* Contenedor del carrito y tabla */
+#carrito-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Contenedor de la tabla */
+#tabla-container {
   position: absolute;
-  top: 0;
+  top: 100%; /* Coloca la tabla justo debajo del carrito */
   right: 0;
+  display: none; /* Inicialmente oculto */
+  z-index: 1000; /* Encima de todo */
+  background-color: white;
+  min-width: 300px;
 }
 
-#tabla th,
-#tabla td {
-  border: 1px solid #ddd;
+/* Estilos para la tabla */
+#tabla-articulos {
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 400px;
+  border-collapse: collapse;
+  margin-top: 5px; /* Pequeño espacio entre carrito y tabla */
+}
+
+#tabla-articulos th,
+#tabla-articulos td {
   padding: 10px;
-  text-align: center;
-  vertical-align: middle;
-  width: 300px;
-  height: 50px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
-#tabla th {
-  background-color: #f0f0f0;
+#tabla-articulos img {
+  max-width: 50px;
+  height: auto;
+}
+
+/* Mantener espacio para el contenido principal */
+main {
+  position: relative;
+  z-index: 10; /* Debajo del carrito */
 }
 
 /*Seccion de bienvenida debajo del header con la informacion del negocio al lado derecho y la imagen a la izquierda*/
@@ -92,4 +114,16 @@ header {
 #tabla-articulos img {
   width: 100px;
   height: 100px;
+}
+
+.alerta {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#alerta-carrito {
+  display: none;
 }
