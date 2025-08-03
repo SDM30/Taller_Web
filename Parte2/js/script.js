@@ -59,11 +59,11 @@ botonesAgregarCar.forEach((boton) => {
     const Graficos = articulo.querySelector(".Graficos").innerHTML;
     const Anio = articulo.querySelector(".Anio").innerHTML;
     // Convertir el precio a número eliminando cualquier formato
+    const precioTexto = articulo.querySelector(".precio-producto").textContent;
     const precioArticulo = parseFloat(
-      articulo
-        .querySelector(".precio-producto")
-        .innerHTML.replace(/[^0-9.-]+/g, "")
+      precioTexto.replace(/[^\d]/g, "") // Elimina todo excepto dígitos
     );
+
     const imagenArticulo = articulo.querySelector(".img-producto").src;
 
     const articuloElegido = new Articulo(
@@ -137,11 +137,19 @@ function generarTablaHTML() {
 
 function agregarArticuloTabla(articulo) {
   const articuloCarHTML = document.createElement("tr");
+  const precioFormateado = articulo.articulo.precio
+    .toLocaleString("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    })
+    .replace(/,/g, ".");
 
   articuloCarHTML.innerHTML = `
     <td><img src="${articulo.articulo.imagenURL}" alt="Imagen del producto" /></td>
     <td>${articulo.articulo.nombre}</td>
-    <td>${articulo.articulo.precio}</td>
+    <td>${precioFormateado}</td>
     <td>${articulo.cantidad}</td>
   `;
 

@@ -11,6 +11,16 @@ export class Articulo {
   }
 
   generarArticulosHTML() {
+    const precioFormateado = this.precio
+      .toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+        useGrouping: true,
+      })
+      .replace(/,/g, ".");
+
     let html = `
       <article class="producto">
       <div class="imagen-contenedor">
@@ -25,7 +35,7 @@ export class Articulo {
           <li class="Graficos"><strong>Gráficos:</strong> ${this.Graficos}</li>
           <li class="Anio"><strong>Año:</strong> ${this.anio}</li>
         </ul>
-        <p class="precio-producto">$${this.precio}</p>
+        <p class="precio-producto">${precioFormateado}</p>
         <button class="introducir-carrito">Agregar al carrito</button>
       </div>
     </article>
