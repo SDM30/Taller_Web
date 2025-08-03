@@ -50,18 +50,22 @@ botonesAgregarCar.forEach((boton) => {
 
     // Cargar sus atributos a partir de la clase
     const nombreArticulo = articulo.querySelector(".nombre-producto").innerHTML;
-    const atributo1 = articulo.querySelector(".atributo1").innerHTML;
-    const atributo2 = articulo.querySelector(".atributo2").innerHTML;
-    const atributo3 = articulo.querySelector(".atributo3").innerHTML;
+    const CPU = articulo.querySelector(".CPU").innerHTML;
+    const RAM = articulo.querySelector(".RAM").innerHTML;
+    const ROM = articulo.querySelector(".ROM").innerHTML;
+    const Graficos = articulo.querySelector(".Graficos").innerHTML;
+    const Año = articulo.querySelector(".Año").innerHTML;
     const precioArticulo = articulo.querySelector(".precio-producto").innerHTML;
     const imagenArticulo = articulo.querySelector(".img-producto").src;
 
     const articuloElegido = new Articulo(
       nombreArticulo,
       imagenArticulo,
-      atributo1,
-      atributo2,
-      atributo3,
+      CPU,
+      RAM,
+      ROM,
+      Graficos,
+      Año,
       precioArticulo
     );
 
@@ -145,9 +149,11 @@ const formulario = document.getElementById("formulario-articulo");
 const alertaArticulo = document.getElementById("alerta-articulo");
 const nombreProducto = document.getElementById("txtNombre");
 const imagenURL = document.getElementById("urlImagen");
-const atributo1 = document.getElementById("txtAtributo1");
-const atributo2 = document.getElementById("txtAtributo2");
-const atributo3 = document.getElementById("txtAtributo3");
+const CPU = document.getElementById("txtCPU");
+const RAM = document.getElementById("txtRAM");
+const ROM = document.getElementById("txtROM");
+const Graficos = document.getElementById("txtGraficos");
+const Año = document.getElementById("txtAño");
 const precio = document.getElementById("txtPrecio");
 
 // TODO #4: Crear tarjeta del nuevo articulo con los datos suministrados por el usuario
@@ -175,7 +181,7 @@ formulario.addEventListener("submit", (e) => {
     return;
   }
 
-  // TODO #4.1: Mostrar alerta si el precio es menor a 1000 y no permitir su creacion
+  // Validar que el precio sea mayor o igual a 1000
   if (precioNumerico < 1000) {
     alertaArticulo.textContent = "El precio debe ser mayor o igual a 1000";
     alertaArticulo.hidden = false;
@@ -186,9 +192,11 @@ formulario.addEventListener("submit", (e) => {
   const articuloCreado = new Articulo(
     nombreProducto.value.trim(),
     imagenURL.value.trim(),
-    atributo1.value.trim(),
-    atributo2.value.trim(),
-    atributo3.value.trim(),
+    CPU.value.trim(),
+    RAM.value.trim(),
+    ROM.value.trim(),
+    Graficos.value.trim(),
+    Año.value.trim(),
     precioNumerico
   );
 
@@ -215,6 +223,59 @@ function actualizarArticulosDisponibles() {
     const articuloHTML = articulo.generarArticulosHTML();
     document.querySelector("#productos").innerHTML += articuloHTML;
   }
+
+  // Volver a agregar los event listeners
+  const nuevosArticulos = document.querySelectorAll(".producto");
+  nuevosArticulos.forEach((articulo) => {
+    articulo.addEventListener("mouseenter", (evento) => {
+      evento.target.style.background = "gray";
+    });
+    articulo.addEventListener("mouseleave", (evento) => {
+      evento.target.style.background = "white";
+    });
+  });
+
+  // Volver a agregar los event listeners a los botones
+  const nuevosBotones = document.querySelectorAll(".introducir-carrito");
+  nuevosBotones.forEach((boton) => {
+    boton.addEventListener("click", (evento) => {
+      const articulo = evento.target.parentElement;
+      const nombreArticulo =
+        articulo.querySelector(".nombre-producto").innerHTML;
+      const CPU = articulo.querySelector(".CPU").innerHTML;
+      const RAM = articulo.querySelector(".RAM").innerHTML;
+      const ROM = articulo.querySelector(".ROM").innerHTML;
+      const Graficos = articulo.querySelector(".Graficos").innerHTML;
+      const Año = articulo.querySelector(".Año").innerHTML;
+      const precioArticulo =
+        articulo.querySelector(".precio-producto").innerHTML;
+      const imagenArticulo = articulo.querySelector(".img-producto").src;
+
+      const articuloElegido = new Articulo(
+        nombreArticulo,
+        imagenArticulo,
+        CPU,
+        RAM,
+        ROM,
+        Graficos,
+        Año,
+        precioArticulo
+      );
+
+      const articuloExistente = carrito.find((articuloInCarrito) => {
+        return articuloElegido.equals(articuloInCarrito.articulo);
+      });
+
+      if (articuloExistente != undefined) {
+        articuloExistente.cantidad += 1;
+      } else {
+        const articuloCar = new ArticuloCarrito(articuloElegido, 1);
+        carrito.push(articuloCar);
+      }
+
+      console.log(carrito);
+    });
+  });
 }
 
 //Revisar creacion de articulos repetidos

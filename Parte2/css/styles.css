@@ -2,13 +2,46 @@
   border: 1px solid red;
 }
 
+@font-face {
+  font-family: "Geo";
+  src: url(../fonts/Geo-Regular.ttf);
+}
+
+@font-face {
+  font-family: "SpaceMono";
+  src: url(../fonts/SpaceMono-Regular.ttf);
+}
+
 /* Contenedor principal del header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
-  z-index: 100; /* Header esté sobre el contenido */
+  z-index: 100;
+  padding: 10px 20px;
+  background-color: rgb(113, 228, 113);
+}
+
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#nombre-tienda {
+  font-family: "Geo", sans-serif;
+  font-size: 60px;
+}
+/* Ajuste para el título */
+header h1 {
+  margin: 0;
+}
+
+.icono {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
 }
 
 /* Contenedor del carrito y tabla */
@@ -58,14 +91,47 @@ main {
 /*Seccion de bienvenida debajo del header con la informacion del negocio al lado derecho y la imagen a la izquierda*/
 #bienvenida {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 200px;
+  gap: 30px; /* Espacio entre texto e imagen */
+  max-width: 1200px;
+  margin: 20px auto; /* Centra el contenido */
+  padding: 20px;
+  background-color: rgb(113, 228, 113);
+}
+
+#info-negocio {
+  flex: 1;
+  min-width: 0; /* Permite que el texto se ajuste */
+  background-color: rgb(113, 228, 113);
+}
+
+#bienvenida img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
 }
 
 /*Titulos centrados*/
 .seccion-titulo {
+  font-family: "Geo", sans-serif;
+  font-size: 40px;
   text-align: center;
+  background-color: rgb(113, 228, 113);
+}
+
+.texto-descriptivo {
+  font-family: "SpaceMono", sans-serif;
+  text-align: justify;
+  margin: 20px 20px;
+  padding: 20px;
+  background-color: white;
+}
+
+#tienda-titulo {
+  margin: 0px 0px 20px 0px;
+  padding: 20px;
 }
 
 /*Cuadrilla de productos dinamica/flexible*/
@@ -73,6 +139,40 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.nombre-producto {
+  font-family: "SpaceMono", sans-serif;
+  text-align: center;
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.atributos-producto {
+  list-style: none;
+  font-family: "SpaceMono", sans-serif;
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+.precio-producto {
+  font-family: "Geo", sans-serif;
+  font-size: 24px;
+  color: green;
+  text-align: right;
+  margin: 10px 0;
+}
+
+.introducir-carrito {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 20px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "SpaceMono", sans-serif;
+  width: 100%;
 }
 
 /*Formulario de agregar productos: columna de inputs, el boton de enviar en el costado inferior derecho alineado con el precio*/
@@ -118,6 +218,7 @@ main {
 
 .alerta {
   background-color: #f8d7da;
+  text-align: center;
   color: #721c24;
   padding: 10px;
   border-radius: 5px;

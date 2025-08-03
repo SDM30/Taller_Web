@@ -10,10 +10,17 @@
   <body>
     <!-- Nombre, Logo y Carrito -->
     <header>
-      <img src="logo.png" alt="Logo de la tienda" />
-      <h1>Nombre de la tienda</h1>
+      <div class="logo-titulo">
+        <img src="../images/logo.png" class="icono" alt="Logo de la tienda" />
+        <h1 id="nombre-tienda">Retrovisor</h1>
+      </div>
       <div id="carrito-container">
-        <img src="carrito.png" id="carrito" alt="Carrito de compras" />
+        <img
+          src="../images/carro.png"
+          class="icono"
+          id="carrito"
+          alt="Carrito de compras"
+        />
         <!-- La tabla dentro de un contenedor relativo al carrito -->
         <div id="tabla-container">
           <table id="tabla-articulos">
@@ -40,22 +47,32 @@
     <main>
       <!-- Bienvenida al negocio -->
       <section id="bienvenida">
-        <h2 class="seccion-titulo">Información del negocio</h2>
-        <img src="" alt="Imagen del negocio" />
+        <article id="info-negocio">
+          <h2 class="seccion-titulo">Acerca de nosotros</h2>
+          <p class="texto-descriptivo">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est culpa
+            doloribus optio, minus fugit eos vero? Maiores expedita facere
+            impedit nisi ipsam quae nihil autem hic aperiam ducimus. Voluptates
+            aperiam ducimus blanditiis alias enim illo laboriosam tempore, ullam
+            repudiandae adipisci consectetur molestiae iusto facilis, officia,
+            fuga sunt mollitia repellat ut.
+          </p>
+        </article>
+        <img src="../images/info_negocio.webp" alt="Imagen del negocio" />
       </section>
 
       <!-- Sección de productos -->
       <section id="tienda">
-        <h2 class="seccion-titulo">Tienda</h2>
+        <h2 id="tienda-titulo" class="seccion-titulo">Tienda</h2>
         <div id="productos"></div>
       </section>
 
       <!-- Sección de agregar productos -->
       <section id="agregar-articulo">
         <h2 class="seccion-titulo">Agregar productos</h2>
+        <p hidden id="alerta-articulo" class="alerta"></p>
         <form id="formulario-articulo">
           <fieldset class="formulario-container">
-            <p hidden id="alerta-articulo"></p>
             <div class="input-group">
               <label for="nombre">Nombre del producto</label>
               <input
@@ -65,28 +82,44 @@
                 placeholder="Nombre del producto"
                 required
               />
-              <label for="atributo1">Atributo 1</label>
+              <label for="CPU">CPU</label>
               <input
                 type="text"
-                name="atributo1"
-                id="txtAtributo1"
-                placeholder="Atributo 1"
+                name="CPU"
+                id="txtCPU"
+                placeholder="CPU"
                 required
               />
-              <label for="atributo2">Atributo 2</label>
+              <label for="RAM">RAM</label>
               <input
                 type="text"
-                name="atributo2"
-                id="txtAtributo2"
-                placeholder="Atributo 2"
+                name="RAM"
+                id="txtRAM"
+                placeholder="RAM"
                 required
               />
-              <label for="atributo3">Atributo 3</label>
+              <label for="ROM">ROM</label>
               <input
                 type="text"
-                name="atributo3"
-                id="txtAtributo3"
-                placeholder="Atributo 3"
+                name="ROM"
+                id="txtROM"
+                placeholder="ROM"
+                required
+              />
+              <label for="Graficos">Gráficos</label>
+              <input
+                type="text"
+                name="Graficos"
+                id="txtGraficos"
+                placeholder="Gráficos"
+                required
+              />
+              <label for="Año">Año</label>
+              <input
+                type="text"
+                name="Año"
+                id="txtAño"
+                placeholder="Año de lanzamiento"
                 required
               />
               <label for="imagen">Imagen</label>
