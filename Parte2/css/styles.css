@@ -1,7 +1,3 @@
-* {
-  border: 1px solid red;
-}
-
 @font-face {
   font-family: "Geo";
   src: url(../fonts/Geo-Regular.ttf);
@@ -138,22 +134,84 @@ main {
 #productos {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: center;
 }
 
-.nombre-producto {
-  font-family: "SpaceMono", sans-serif;
-  text-align: center;
-  font-size: 25px;
-  margin: 10px 0;
+/* Estilos para la tarjeta de producto */
+.producto {
+  flex: 0 0 300px; /* Cambio de flex-1 a flex-0 para tamaño fijo */
+  width: 300px; /* Ancho fijo */
+  min-width: unset; /* Eliminar min-width */
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Contenedor de imagen expandido */
+.imagen-contenedor {
+  height: 250px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen que cubre todo el contenedor */
+.img-producto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+/* Contenido textual con padding */
+.contenido-producto {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 300px; /* Aumentamos la altura */
+}
+
+/* Efecto hover para dar interactividad */
+.imagen-contenedor:hover .img-producto {
+  transform: scale(1.1);
 }
 
 .atributos-producto {
+  flex-grow: 1;
   list-style: none;
   font-family: "SpaceMono", sans-serif;
   font-size: 16px;
   padding: 0;
   margin: 0;
+}
+
+.atributos-producto li {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.nombre-producto {
+  font-family: "SpaceMono", sans-serif;
+  text-align: center;
+  font-size: 20px; /* Reducimos un poco el tamaño de la fuente */
+  margin: 0 0 15px 0; /* Ajustamos los márgenes */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  min-height: 25px; /* Altura mínima para el nombre */
+  display: block; /* Aseguramos que sea un bloque */
 }
 
 .precio-producto {
@@ -204,11 +262,6 @@ main {
 
 .producto {
   border: 1px solid black;
-}
-
-.img-producto {
-  width: 200px;
-  height: 100px;
 }
 
 #tabla-articulos img {
