@@ -30,16 +30,21 @@ const articulos = document.querySelectorAll(".producto");
 articulos.forEach((articulo) => {
   //console.log(articulo.innerHTML);
   articulo.addEventListener("mouseenter", (evento) => {
-    evento.target.style.background = "gray";
+    interaccion(evento, 1.1);
   });
 });
 
 articulos.forEach((articulo) => {
   //console.log(articulo);
   articulo.addEventListener("mouseleave", (evento) => {
-    evento.target.style.background = "white";
+    interaccion(evento, 1);
   });
 });
+
+const interaccion = (evento, numero) => {
+  const imagen = evento.target.querySelector(".img-producto");
+  imagen.style.transform = `scale(${numero})`;
+};
 
 const botonesAgregarCar = document.querySelectorAll(".introducir-carrito");
 
@@ -164,9 +169,12 @@ const precio = document.getElementById("txtPrecio");
 
 // TODO #4: Crear tarjeta del nuevo articulo con los datos suministrados por el usuario
 
-const botonCrear = document.querySelector("#enviar-formulario");
 formulario.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  // Resetear el estado de la alerta
+  alertaArticulo.hidden = true;
+  alertaArticulo.textContent = "";
 
   // Validación de URL de imagen
   try {

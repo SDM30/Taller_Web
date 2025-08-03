@@ -39,7 +39,7 @@
           <p id="alerta-carrito" class="alerta">
             Todavia no hay articulos en el carrito
           </p>
-          <button id="vaciar">Vaciar</button>
+          <button id="vaciar">Vaciar Carrito</button>
         </div>
       </div>
     </header>
@@ -50,12 +50,14 @@
         <article id="info-negocio">
           <h2 class="seccion-titulo">Acerca de nosotros</h2>
           <p class="texto-descriptivo">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est culpa
-            doloribus optio, minus fugit eos vero? Maiores expedita facere
-            impedit nisi ipsam quae nihil autem hic aperiam ducimus. Voluptates
-            aperiam ducimus blanditiis alias enim illo laboriosam tempore, ullam
-            repudiandae adipisci consectetur molestiae iusto facilis, officia,
-            fuga sunt mollitia repellat ut.
+            Bienvenidos a Retrovisor, tu tienda de computación clásica. Aquí
+            encontrarás piezas icónicas como el revolucionario Altair 8800
+            (1975), el colorido Apple II (1977) o el legendario Commodore 64
+            (1982), cada uno con su historia grabada en chips de 8 bits y
+            disquetes de 5.25". Desde el IBM PC 5150 hasta el raro Electronika
+            soviético, ofrecemos máquinas que definieron eras, perfectas para
+            coleccionistas y nostálgicos de la tecnología. ¡Revive los albores
+            de la computación personal con nosotros!
           </p>
         </article>
         <img src="../images/info_negocio.webp" alt="Imagen del negocio" />
@@ -69,77 +71,54 @@
 
       <!-- Sección de agregar productos -->
       <section id="agregar-articulo">
-        <h2 class="seccion-titulo">Agregar productos</h2>
+        <h2 id="agregar-articulo-titulo" class="seccion-titulo">
+          Agregar productos
+        </h2>
         <p hidden id="alerta-articulo" class="alerta"></p>
         <form id="formulario-articulo">
           <fieldset class="formulario-container">
-            <div class="input-group">
-              <label for="nombre">Nombre del producto</label>
-              <input
-                type="text"
-                name="nombre"
-                id="txtNombre"
-                placeholder="Nombre del producto"
-                required
-              />
-              <label for="CPU">CPU</label>
-              <input
-                type="text"
-                name="CPU"
-                id="txtCPU"
-                placeholder="CPU"
-                required
-              />
-              <label for="RAM">RAM</label>
-              <input
-                type="text"
-                name="RAM"
-                id="txtRAM"
-                placeholder="RAM"
-                required
-              />
-              <label for="ROM">ROM</label>
-              <input
-                type="text"
-                name="ROM"
-                id="txtROM"
-                placeholder="ROM"
-                required
-              />
-              <label for="Graficos">Gráficos</label>
-              <input
-                type="text"
-                name="Graficos"
-                id="txtGraficos"
-                placeholder="Gráficos"
-                required
-              />
-              <label for="Anio">Año</label>
-              <input
-                type="number"
-                name="Anio"
-                id="txtAnio"
-                placeholder="Año de lanzamiento"
-                required
-              />
-              <label for="imagen">Imagen</label>
-              <input
-                type="url"
-                name="imagen"
-                id="urlImagen"
-                placeholder="URL de la imagen"
-                required
-              />
-              <label for="precio">Precio</label>
-              <input
-                type="number"
-                name="precio"
-                id="txtPrecio"
-                placeholder="Precio"
-                required
-              />
+            <div class="form-layout">
+              <div class="form-column">
+                <div class="form-field">
+                  <label for="nombre">Nombre del producto</label>
+                  <input type="text" name="nombre" id="txtNombre" required />
+                </div>
+                <div class="form-field">
+                  <label for="CPU">CPU</label>
+                  <input type="text" name="CPU" id="txtCPU" required />
+                </div>
+                <div class="form-field">
+                  <label for="RAM">RAM</label>
+                  <input type="text" name="RAM" id="txtRAM" required />
+                </div>
+                <div class="form-field">
+                  <label for="ROM">ROM</label>
+                  <input type="text" name="ROM" id="txtROM" required />
+                </div>
+                <div class="form-field">
+                  <label for="Graficos">Gráficos</label>
+                  <input
+                    type="text"
+                    name="Graficos"
+                    id="txtGraficos"
+                    required
+                  />
+                </div>
+                <div class="form-field">
+                  <label for="Anio">Año</label>
+                  <input type="number" name="Anio" id="txtAnio" required />
+                </div>
+                <div class="form-field">
+                  <label for="imagen">Imagen</label>
+                  <input type="url" name="imagen" id="urlImagen" required />
+                </div>
+                <div class="form-field">
+                  <label for="precio">Precio</label>
+                  <input type="number" name="precio" id="txtPrecio" required />
+                </div>
+              </div>
+              <button id="enviar-formulario">Agregar producto</button>
             </div>
-            <button id="enviar-formulario">Agregar producto</button>
           </fieldset>
         </form>
       </section>

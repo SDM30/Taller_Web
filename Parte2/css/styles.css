@@ -1,3 +1,5 @@
+/* * {border: 1px solid red;} */
+
 @font-face {
   font-family: "Geo";
   src: url(../fonts/Geo-Regular.ttf);
@@ -6,6 +8,13 @@
 @font-face {
   font-family: "SpaceMono";
   src: url(../fonts/SpaceMono-Regular.ttf);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(240, 240, 240);
 }
 
 /* Contenedor principal del header */
@@ -29,6 +38,7 @@ header {
   font-family: "Geo", sans-serif;
   font-size: 60px;
 }
+
 /* Ajuste para el título */
 header h1 {
   margin: 0;
@@ -49,33 +59,57 @@ header h1 {
 /* Contenedor de la tabla */
 #tabla-container {
   position: absolute;
-  top: 100%; /* Coloca la tabla justo debajo del carrito */
+  top: 100%;
   right: 0;
-  display: none; /* Inicialmente oculto */
-  z-index: 1000; /* Encima de todo */
-  background-color: white;
-  min-width: 300px;
+  display: none;
+  z-index: 1000;
+  background-color: rgb(113, 228, 113);
+  min-width: 400px;
+  border: 1px solid black;
 }
 
 /* Estilos para la tabla */
 #tabla-articulos {
-  background: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-width: 400px;
+  width: 100%;
+  background: rgb(113, 228, 113);
   border-collapse: collapse;
-  margin-top: 5px; /* Pequeño espacio entre carrito y tabla */
+  margin: 0;
+  font-family: "SpaceMono", sans-serif;
 }
 
-#tabla-articulos th,
-#tabla-articulos td {
-  padding: 10px;
+#tabla-articulos th {
+  background-color: rgb(113, 228, 113);
+  color: black;
+  padding: 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  font-weight: bold;
+  border-bottom: 1px solid black;
 }
 
-#tabla-articulos img {
-  max-width: 50px;
-  height: auto;
+#tabla-articulos td {
+  background-color: rgb(113, 228, 113);
+  padding: 12px 15px;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+#tabla-articulos tr:hover td {
+  background-color: rgb(80, 180, 80);
+}
+
+#vaciar {
+  width: 100%;
+  background-color: rgb(100, 185, 100);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-family: "SpaceMono", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#vaciar:hover {
+  background-color: rgb(80, 180, 80);
 }
 
 /* Mantener espacio para el contenido principal */
@@ -90,6 +124,7 @@ main {
   align-items: center;
   gap: 30px; /* Espacio entre texto e imagen */
   max-width: 1200px;
+  width: 100%;
   margin: 20px auto; /* Centra el contenido */
   padding: 20px;
   background-color: rgb(113, 228, 113);
@@ -115,6 +150,7 @@ main {
   font-size: 40px;
   text-align: center;
   background-color: rgb(113, 228, 113);
+  padding: 20px;
 }
 
 .texto-descriptivo {
@@ -127,14 +163,13 @@ main {
 
 #tienda-titulo {
   margin: 0px 0px 20px 0px;
-  padding: 20px;
 }
 
 /*Cuadrilla de productos dinamica/flexible*/
 #productos {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -147,7 +182,6 @@ main {
   flex-direction: column;
   height: 550px;
   border: 1px solid #ddd;
-  border-radius: 8px;
   overflow: hidden;
   padding: 0;
 }
@@ -169,7 +203,7 @@ main {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Transición suave al escalar */
 }
 
 /* Contenido textual con padding */
@@ -178,11 +212,6 @@ main {
   display: flex;
   flex-direction: column;
   height: 300px; /* Aumentamos la altura */
-}
-
-/* Efecto hover para dar interactividad */
-.imagen-contenedor:hover .img-producto {
-  transform: scale(1.1);
 }
 
 .atributos-producto {
@@ -205,18 +234,18 @@ main {
 .nombre-producto {
   font-family: "SpaceMono", sans-serif;
   text-align: center;
-  font-size: 20px; /* Reducimos un poco el tamaño de la fuente */
-  margin: 0 0 15px 0; /* Ajustamos los márgenes */
+  font-size: 20px;
+  margin: 0 0 15px 0;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
-  min-height: 25px; /* Altura mínima para el nombre */
-  display: block; /* Aseguramos que sea un bloque */
+  min-height: 25px;
+  display: block;
 }
 
 .precio-producto {
   font-family: "Geo", sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   color: green;
   text-align: right;
   margin: 10px 0;
@@ -233,31 +262,87 @@ main {
   width: 100%;
 }
 
-/*Formulario de agregar productos: columna de inputs, el boton de enviar en el costado inferior derecho alineado con el precio*/
-.formulario-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  border: none;
-  padding: 0;
+#agregar-articulo-titulo {
+  margin: 20px 0 0 0;
 }
 
-.formulario-container > * {
-  flex: 1;
+/*Formulario de agregar productos*/
+#formulario-articulo {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/*Contenedor de todo el formulario*/
+.formulario-container {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+/* Separador entre secciones del formulario  y el boton*/
+.form-layout {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* columna de inputs de texto */
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 300px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-family: "SpaceMono", sans-serif;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 10px;
+  border: 3px solid rgb(113, 228, 113);
+  border-radius: 8px;
+  font-family: "SpaceMono", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.form-field input:focus {
+  border-color: rgb(80, 180, 80);
 }
 
 #enviar-formulario {
-  align-self: flex-end;
-  max-width: 200px;
+  background-color: rgb(113, 228, 113);
+  color: black;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  height: 42px;
+  width: 200px;
+  font-family: "SpaceMono", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: auto;
 }
 
-/* Estilo para agrupar los inputs */
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+#enviar-formulario:hover {
+  background-color: rgb(80, 180, 80);
+}
+
+.precio-boton-container label,
+.precio-boton-container input {
+  margin-bottom: 0;
 }
 
 .producto {
@@ -270,12 +355,19 @@ main {
 }
 
 .alerta {
-  background-color: #f8d7da;
+  display: flex;
+  font-family: "SpaceMono", sans-serif;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  color: #721c24;
+  color: #d42738;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+#alerta-carrito {
+  display: none;
 }
 
 #alerta-carrito {
