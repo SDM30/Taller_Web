@@ -45,17 +45,20 @@ const botonesAgregarCar = document.querySelectorAll(".introducir-carrito");
 
 botonesAgregarCar.forEach((boton) => {
   boton.addEventListener("click", (evento) => {
-    const articulo = evento.target.parentElement;
-    //console.log(articulo.innerHTML);
-
-    // Cargar sus atributos a partir de la clase
+    // Subir al artículo principal
+    const articulo = evento.target.closest(".producto");
     const nombreArticulo = articulo.querySelector(".nombre-producto").innerHTML;
     const CPU = articulo.querySelector(".CPU").innerHTML;
     const RAM = articulo.querySelector(".RAM").innerHTML;
     const ROM = articulo.querySelector(".ROM").innerHTML;
     const Graficos = articulo.querySelector(".Graficos").innerHTML;
-    const Año = articulo.querySelector(".Año").innerHTML;
-    const precioArticulo = articulo.querySelector(".precio-producto").innerHTML;
+    const Anio = articulo.querySelector(".Anio").innerHTML;
+    // Convertir el precio a número eliminando cualquier formato
+    const precioArticulo = parseFloat(
+      articulo
+        .querySelector(".precio-producto")
+        .innerHTML.replace(/[^0-9.-]+/g, "")
+    );
     const imagenArticulo = articulo.querySelector(".img-producto").src;
 
     const articuloElegido = new Articulo(
@@ -65,22 +68,25 @@ botonesAgregarCar.forEach((boton) => {
       RAM,
       ROM,
       Graficos,
-      Año,
+      Anio,
       precioArticulo
     );
 
     // Obtener la instancia del articulo o indefinido
-    const articuloExistente = carrito.find((articuloInCarrito) => {
-      return articuloElegido.equals(articuloInCarrito.articulo);
-    });
+    const articuloExistente = carrito.find(
+      (articuloInCarrito) =>
+        articuloInCarrito.articulo.nombre === articuloElegido.nombre
+    );
 
-    if (articuloExistente != undefined) {
+    if (articuloExistente) {
       articuloExistente.cantidad += 1;
     } else {
       const articuloCar = new ArticuloCarrito(articuloElegido, 1);
       carrito.push(articuloCar);
     }
 
+    // Actualizar la tabla inmediatamente después de agregar
+    generarTablaHTML();
     console.log(carrito);
   });
 });
@@ -153,7 +159,7 @@ const CPU = document.getElementById("txtCPU");
 const RAM = document.getElementById("txtRAM");
 const ROM = document.getElementById("txtROM");
 const Graficos = document.getElementById("txtGraficos");
-const Año = document.getElementById("txtAño");
+const Anio = document.getElementById("txtAnio");
 const precio = document.getElementById("txtPrecio");
 
 // TODO #4: Crear tarjeta del nuevo articulo con los datos suministrados por el usuario
@@ -196,7 +202,7 @@ formulario.addEventListener("submit", (e) => {
     RAM.value.trim(),
     ROM.value.trim(),
     Graficos.value.trim(),
-    Año.value.trim(),
+    Anio.value.trim(),
     precioNumerico
   );
 
@@ -235,20 +241,24 @@ function actualizarArticulosDisponibles() {
     });
   });
 
-  // Volver a agregar los event listeners a los botones
-  const nuevosBotones = document.querySelectorAll(".introducir-carrito");
-  nuevosBotones.forEach((boton) => {
+  const botonAgregarArt = document.querySelectorAll(".introducir-carrito");
+  botonAgregarArt.forEach((boton) => {
     boton.addEventListener("click", (evento) => {
-      const articulo = evento.target.parentElement;
+      // Subir al artículo principal
+      const articulo = evento.target.closest(".producto");
       const nombreArticulo =
         articulo.querySelector(".nombre-producto").innerHTML;
       const CPU = articulo.querySelector(".CPU").innerHTML;
       const RAM = articulo.querySelector(".RAM").innerHTML;
       const ROM = articulo.querySelector(".ROM").innerHTML;
       const Graficos = articulo.querySelector(".Graficos").innerHTML;
-      const Año = articulo.querySelector(".Año").innerHTML;
-      const precioArticulo =
-        articulo.querySelector(".precio-producto").innerHTML;
+      const Anio = articulo.querySelector(".Anio").innerHTML;
+      // Convertir el precio a número eliminando cualquier formato
+      const precioArticulo = parseFloat(
+        articulo
+          .querySelector(".precio-producto")
+          .innerHTML.replace(/[^0-9.-]+/g, "")
+      );
       const imagenArticulo = articulo.querySelector(".img-producto").src;
 
       const articuloElegido = new Articulo(
@@ -258,15 +268,16 @@ function actualizarArticulosDisponibles() {
         RAM,
         ROM,
         Graficos,
-        Año,
+        Anio,
         precioArticulo
       );
 
-      const articuloExistente = carrito.find((articuloInCarrito) => {
-        return articuloElegido.equals(articuloInCarrito.articulo);
-      });
+      const articuloExistente = carrito.find(
+        (articuloInCarrito) =>
+          articuloInCarrito.articulo.nombre === articuloElegido.nombre
+      );
 
-      if (articuloExistente != undefined) {
+      if (articuloExistente) {
         articuloExistente.cantidad += 1;
       } else {
         const articuloCar = new ArticuloCarrito(articuloElegido, 1);

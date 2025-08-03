@@ -1,11 +1,11 @@
 export class Articulo {
-  constructor(nombre, imagenURL, CPU, RAM, ROM, Graficos, Año, precio) {
+  constructor(nombre, imagenURL, CPU, RAM, ROM, Graficos, anio, precio) {
     this.nombre = nombre;
     this.CPU = CPU;
     this.RAM = RAM;
     this.ROM = ROM;
     this.Graficos = Graficos;
-    this.Año = Año;
+    this.anio = anio;
     this.imagenURL = imagenURL;
     this.precio = precio;
   }
@@ -23,7 +23,7 @@ export class Articulo {
           <li class="RAM"><strong>RAM:</strong> ${this.RAM}</li>
           <li class="ROM"><strong>ROM:</strong> ${this.ROM}</li>
           <li class="Graficos"><strong>Gráficos:</strong> ${this.Graficos}</li>
-          <li class="Año"><strong>Año:</strong> ${this.Año}</li>
+          <li class="Anio"><strong>Año:</strong> ${this.anio}</li>
         </ul>
         <p class="precio-producto">$${this.precio}</p>
         <button class="introducir-carrito">Agregar al carrito</button>
@@ -42,7 +42,7 @@ export class Articulo {
       this.RAM === otherArticulo.RAM &&
       this.ROM === otherArticulo.ROM &&
       this.Graficos === otherArticulo.Graficos &&
-      this.Año === otherArticulo.Año &&
+      this.anio === otherArticulo.anio &&
       this.precio === otherArticulo.precio
     );
   }
