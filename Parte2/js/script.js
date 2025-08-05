@@ -143,6 +143,7 @@ function agregarArticuloTabla(articulo) {
       currency: "COP",
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
+      useGrouping: true,
     })
     .replace(/,/g, ".");
 
@@ -250,10 +251,14 @@ function actualizarArticulosDisponibles() {
   const nuevosArticulos = document.querySelectorAll(".producto");
   nuevosArticulos.forEach((articulo) => {
     articulo.addEventListener("mouseenter", (evento) => {
-      evento.target.style.background = "gray";
+      interaccion(evento, 1.1);
     });
+  });
+
+  nuevosArticulos.forEach((articulo) => {
+    //console.log(articulo);
     articulo.addEventListener("mouseleave", (evento) => {
-      evento.target.style.background = "white";
+      interaccion(evento, 1);
     });
   });
 
